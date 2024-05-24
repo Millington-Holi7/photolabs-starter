@@ -6,13 +6,13 @@ import "../styles/PhotoListItem.scss";
 
 
 const PhotoListItem = (props) => {
-  const {sampleDataForPhotoListItem} = props;
+  const {photo} = props;
   return (
-    <div className="PhotoList">
-      <img src={sampleDataForPhotoListItem.imageSource} />
-      <img src={sampleDataForPhotoListItem.profile} />
-      <h5>{sampleDataForPhotoListItem.username}</h5>
-      <h5>{sampleDataForPhotoListItem.location.city}{sampleDataForPhotoListItem.location.country}</h5>
+    <div className="photo-list__item">
+      <img className="photo-list__image" src={photo.imageSource} />
+      <img className="photo-list__user-profile"src={photo.profile} />
+      <p className="photo-list__user-details photo-list__user-info">{photo.username}</p>
+      <p className="photo-list__user-location photo-list__user-info">{photo.location.city}, {photo.location.country}</p>
     </div>
   )
 };
