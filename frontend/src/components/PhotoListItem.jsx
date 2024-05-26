@@ -5,7 +5,6 @@ import "../styles/PhotoListItem.scss";
 
 
 const PhotoListItem = (props) => {
-  console.log(props);
   const { photo } = props;
   return (
     <div className="photo-list__item">

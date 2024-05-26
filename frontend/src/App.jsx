@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import PhotoList from 'components/PhotoList';
 import './App.scss';
 import './styles/PhotoList.scss'
+import TopicList from 'components/TopicList';
 
 
 // 2 WAYS OF PUSHING AN OBJECT TO AN ARRAY WITH A SPECIFIC AMOUNT OF INDEXES
@@ -16,6 +17,7 @@ import './styles/PhotoList.scss'
 const App = () => {
   return (
     <div className="photo-list">
+     <TopicList />
      <PhotoList />
     </div>
   );
