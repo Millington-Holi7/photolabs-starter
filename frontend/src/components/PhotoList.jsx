@@ -3,7 +3,8 @@ import photos from "mocks/photos";
 import PhotoListItem from "./PhotoListItem";
 import "../styles/PhotoList.scss";
 
-const PhotoList = () => {
+const PhotoList = (props) => {
+  const {photos}= props;
   return (
     <ul className="photo-list">
       
