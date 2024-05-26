@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import PhotoList from 'components/PhotoList';
+
 import './App.scss';
 import './styles/PhotoList.scss'
-import TopNavigationBar from 'components/TopNavigationBar';
+
+import HomeRoute from 'routes/HomeRoute';
 
 
 // 2 WAYS OF PUSHING AN OBJECT TO AN ARRAY WITH A SPECIFIC AMOUNT OF INDEXES
@@ -17,8 +18,7 @@ import TopNavigationBar from 'components/TopNavigationBar';
 const App = () => {
   return (
     <div className="photo-list">
-      <TopNavigationBar />
-     <PhotoList />
+<HomeRoute />
     </div>
   );
 };
