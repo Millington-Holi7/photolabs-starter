@@ -5,6 +5,7 @@ import './App.scss';
 import './styles/PhotoList.scss'
 
 import HomeRoute from 'routes/HomeRoute';
+import PhotoDetailsModal from 'routes/PhotoDetailsModal';
 
 
 // 2 WAYS OF PUSHING AN OBJECT TO AN ARRAY WITH A SPECIFIC AMOUNT OF INDEXES
@@ -20,6 +21,7 @@ const App = () => {
   return (
     <div className="photo-list">
 <HomeRoute topics={topics} photos={photos} />
+<PhotoDetailsModal />
     </div>
   );
 };
