@@ -8,7 +8,7 @@ import '../styles/HomeRoute.scss';
 
 
 const HomeRoute = (props) => {
-  const {topics, photos} = props;
+  const {topics, photos, setDisplayModal} = props;
   const [likedPhotos,setLikedPhotos] = useState([]);
 
  
@@ -19,6 +19,7 @@ const HomeRoute = (props) => {
       photos={photos}
       likedPhotos={likedPhotos}
       setLikedPhotos={setLikedPhotos}
+      setDisplayModal={setDisplayModal}
       />
     </div>
   );

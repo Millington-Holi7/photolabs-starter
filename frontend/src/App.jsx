@@ -8,20 +8,15 @@ import HomeRoute from 'routes/HomeRoute';
 import PhotoDetailsModal from 'routes/PhotoDetailsModal';
 
 
-// 2 WAYS OF PUSHING AN OBJECT TO AN ARRAY WITH A SPECIFIC AMOUNT OF INDEXES
-// const photos = [];
-// for(let i= 0; i < 3; i++){
-//   photos.push(<PhotoListItem key={i} photo={sampleDataForPhotoListItem}/>)
-// }
-{/* { Array.from(Array(3)).map((_, index) => <PhotoListItem key={index}/>) } */}
-
 
 // Note: Rendering a single component to build components in isolation
 const App = () => {
+  const [displayModal, setDisplayModal] = useState(false)
+
   return (
     <div className="photo-list">
-<HomeRoute topics={topics} photos={photos} />
-<PhotoDetailsModal />
+      <HomeRoute topics={topics} photos={photos} setDisplayModal={setDisplayModal} />
+      {displayModal === true && <PhotoDetailsModal setDisplayModal={setDisplayModal}/>}
     </div>
   );
 };
