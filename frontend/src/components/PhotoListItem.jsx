@@ -5,10 +5,10 @@ import "../styles/PhotoListItem.scss";
 
 
 const PhotoListItem = (props) => {
-  const { photo } = props;
+  const { photo, setLikedPhotos } = props;
   return (
     <div className="photo-list__item">
-      <PhotoFavButton />
+      <PhotoFavButton setLikedPhotos={setLikedPhotos} id={photo.id}/>
       <img className="photo-list__image" src={photo.urls.full} />
       <img className="photo-list__user-profile" src={photo.user.profile} />
       <div className="photo-list__user-info">

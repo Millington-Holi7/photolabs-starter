@@ -4,7 +4,7 @@ import TopicListItem from "./TopicListItem";
 
 
 const TopicList = (props) => {
-  console.log(props);
+
   const { topics }= props;  
   return (
     <div className="top-nav-bar__topic-list">
