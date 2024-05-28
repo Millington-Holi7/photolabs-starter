@@ -3,7 +3,7 @@ import photos from 'mocks/photos';
 import topics from 'mocks/topics';
 import './App.scss';
 import './styles/PhotoList.scss'
-
+import { useApplicationData } from 'Hooks/useApplicationData';
 import HomeRoute from 'routes/HomeRoute';
 import PhotoDetailsModal from 'routes/PhotoDetailsModal';
 
@@ -11,8 +11,8 @@ import PhotoDetailsModal from 'routes/PhotoDetailsModal';
 
 // Note: Rendering a single component to build components in isolation
 const App = () => {
-  const [displayModal, setDisplayModal] = useState(null)
-  const [likedPhotos,setLikedPhotos] = useState([]);
+
+ const {likedPhotos, setLikedPhotos, displayModal, setDisplayModal} = useApplicationData()
 
   return (
     <div className="photo-list">
