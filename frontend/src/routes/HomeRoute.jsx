@@ -8,8 +8,8 @@ import '../styles/HomeRoute.scss';
 
 
 const HomeRoute = (props) => {
-  const {topics, photos, setDisplayModal} = props;
-  const [likedPhotos,setLikedPhotos] = useState([]);
+  const {topics, photos, setDisplayModal, likedPhotos,setLikedPhotos} = props;
+  
 
  
   return (

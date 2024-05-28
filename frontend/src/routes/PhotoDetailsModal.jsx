@@ -5,7 +5,7 @@ import '../styles/PhotoListItem.scss'
 import '../styles/PhotoDetailsModal.scss'
 import closeSymbol from '../assets/closeSymbol.svg';
 
-const PhotoDetailsModal = ({ displayModal, setDisplayModal }) => {
+const PhotoDetailsModal = ({ displayModal, setDisplayModal, setLikedPhotos }) => {
   const similarPhotos = Object.values(displayModal.similar_photos)
 
   return (
@@ -15,8 +15,8 @@ const PhotoDetailsModal = ({ displayModal, setDisplayModal }) => {
           <img src={closeSymbol} alt="close symbol" />
         </button>
       </div>
-      <PhotoFavButton  id={displayModal.id} />
-      <img className="photo-details-modal__image" src={displayModal.urls.regular} />
+      <PhotoFavButton setLikedPhotos={setLikedPhotos} id={displayModal.id} />
+      <img className="photo-details-modal__image" src={displayModal.urls.full} />
       <div className="photo-details-modal__header">
         <div className='photo-details-modal__photographer-info'>
         <img className="photo-details-modal__photographer-profile" src={displayModal.user.profile} />
