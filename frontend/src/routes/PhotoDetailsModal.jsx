@@ -1,23 +1,29 @@
 import React from 'react';
 import PhotoList from 'components/PhotoList';
+import PhotoFavButton from 'components/PhotoFavButton';
 import '../styles/PhotoListItem.scss'
 import '../styles/PhotoDetailsModal.scss'
 import closeSymbol from '../assets/closeSymbol.svg';
 
 const PhotoDetailsModal = ({ displayModal, setDisplayModal }) => {
   const similarPhotos = Object.values(displayModal.similar_photos)
-  console.log(similarPhotos)
+
   return (
     <div className="photo-details-modal">
-      <button className="photo-details-modal__close-button" onClick={() => setDisplayModal(null)}>
-        <img src={closeSymbol} alt="close symbol" />
-      </button>
-      <img className="photo-details-modal_image" src={displayModal.urls.regular} />
-      <div className="photo-details-modal_header">
-        <img src={displayModal.user.profile} />
-        <p className="photo-list__user-details ">{displayModal.user.username}</p>
-        <p className="photo-list__user-location">{displayModal.location.city}, {displayModal.location.country}</p>
+      <div className='photo-details-modal__top-bar'>
+        <button className="photo-details-modal__close-button" onClick={() => setDisplayModal(null)}>
+          <img src={closeSymbol} alt="close symbol" />
+        </button>
       </div>
+      <PhotoFavButton  id={displayModal.id} />
+      <img className="photo-details-modal__image" src={displayModal.urls.regular} />
+      <div className="photo-details-modal__header">
+        <div className='photo-details-modal__photographer-info'>
+        <img className="photo-details-modal__photographer-profile" src={displayModal.user.profile} />
+          <p className="photo-details-modal__photographer-details">{displayModal.user.username}</p>
+          <p className="photo-details-modal__photographer-location">{displayModal.location.city}, {displayModal.location.country}</p>
+      </div>
+        </div>
       <div className='photo-details-modal__images'>
         <PhotoList photos={similarPhotos} />
       </div>
