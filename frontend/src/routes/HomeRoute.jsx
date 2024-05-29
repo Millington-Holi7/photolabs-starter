@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import TopNavigationBar from 'components/TopNavigationBar';
 import PhotoList from 'components/PhotoList';
 
@@ -7,19 +7,16 @@ import '../styles/HomeRoute.scss';
 
 
 
-const HomeRoute = (props) => {
-  const {topics, photos, setDisplayModal, likedPhotos,setLikedPhotos} = props;
-  
+const HomeRoute = ({ topics, photos, setSelectedPhoto, likedPhotos, setLikedPhotos }) => {
 
- 
   return (
     <div className="home-route">
-      <TopNavigationBar topics={topics} likedPhotos={likedPhotos}/>
-      <PhotoList 
-      photos={photos}
-      likedPhotos={likedPhotos}
-      setLikedPhotos={setLikedPhotos}
-      setDisplayModal={setDisplayModal}
+      <TopNavigationBar topics={topics} likedPhotos={likedPhotos} />
+      <PhotoList
+        photos={photos}
+        likedPhotos={likedPhotos}
+        setLikedPhotos={setLikedPhotos}
+        setSelectedPhoto={setSelectedPhoto}
       />
     </div>
   );

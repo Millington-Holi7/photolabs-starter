@@ -4,22 +4,15 @@ import FavIcon from './FavIcon';
 import '../styles/PhotoFavButton.scss';
 
 
-function PhotoFavButton({ setLikedPhotos, id }) {
+function PhotoFavButton({ id, setLikedPhotos }) {
 
+  
   const [like, setLike] = useState(false)
-  const switchLike = () => {
+   const switchLike = () => {
+    setLikedPhotos(id)
     setLike(!like)
-    setLikedPhotos((prev) => {
-      if(!prev.includes(id)){
-        const newArr = [...prev, id]
-        return newArr;
-      }else{
-        const filteredArray = prev.filter(element => element !== id)
-        return filteredArray;
+  
       }
-    })
- 
-  }
 
   return (
     <div className="photo-list__fav-icon" onClick={switchLike}>

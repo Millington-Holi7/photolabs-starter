@@ -2,17 +2,17 @@ import React from "react";
 import PhotoListItem from "./PhotoListItem";
 import "../styles/PhotoList.scss";
 
-const PhotoList = ({ photos, setLikedPhotos, setDisplayModal }) => {
+const PhotoList = ({ photos, setLikedPhotos, setSelectedPhoto }) => {
 
   return (
     <ul className="photo-list"  >
 
       {photos.map((photo) => (
         <li key={photo.id}  >
-          <PhotoListItem 
+          <PhotoListItem
             photo={photo}
             setLikedPhotos={setLikedPhotos}
-           setDisplayModal={setDisplayModal}
+            setSelectedPhoto={setSelectedPhoto}
           />
         </li>
       ))}

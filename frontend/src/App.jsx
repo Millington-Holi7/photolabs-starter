@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
-import photos from 'mocks/photos';
-import topics from 'mocks/topics';
+import React, { reducer } from 'react';
+
 import './App.scss';
 import './styles/PhotoList.scss'
-import { useApplicationData } from 'Hooks/useApplicationData';
+import { useApplicationData } from 'hooks/useApplicationData';
 import HomeRoute from 'routes/HomeRoute';
 import PhotoDetailsModal from 'routes/PhotoDetailsModal';
 
@@ -12,23 +11,32 @@ import PhotoDetailsModal from 'routes/PhotoDetailsModal';
 // Note: Rendering a single component to build components in isolation
 const App = () => {
 
- const {likedPhotos, setLikedPhotos, displayModal, setDisplayModal} = useApplicationData()
+  // create a place to hold our todos
+  const [todos, setTodos] = useState([]);
+
+  useEffect(() => {
+    // use the fetch API to make an AJAX request to the backend
+    fetch('http://localhost:8080/todos')
+      .then(res => res.json())
+      .then(data => setTodos(data));
+  }, []);
 
   return (
     <div className="photo-list">
+       {JSON.stringify(todos)}
       <HomeRoute
-        topics={topics}
-        photos={photos}
-        likedPhotos={likedPhotos}
+        topics={state.topics}
+        photos={state.photos}
+        likedPhotos={state.likedPhotos}
         setLikedPhotos={setLikedPhotos}
-        setDisplayModal={setDisplayModal}
+        setSelectedPhoto={setSelectedPhoto}
       />
 
-      {displayModal && <PhotoDetailsModal
-       displayModal={displayModal} 
-       setDisplayModal={setDisplayModal}
-       setLikedPhotos={setLikedPhotos}
-        />}
+      {state.selectedPhoto && <PhotoDetailsModal
+        selectedPhoto={state.selectedPhoto}
+        setSelectedPhoto={setSelectedPhoto}
+        setLikedPhotos={setLikedPhotos}
+      />}
     </div>
   );
 };
