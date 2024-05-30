@@ -1,32 +1,22 @@
 import React, { reducer } from 'react';
-
+import HomeRoute from './routes/HomeRoute.jsx';
 import './App.scss';
 import './styles/PhotoList.scss'
-import { useApplicationData } from 'hooks/useApplicationData';
-import HomeRoute from 'routes/HomeRoute';
-import PhotoDetailsModal from 'routes/PhotoDetailsModal';
+import { useApplicationData } from './hooks/useApplicationData';
+import PhotoDetailsModal from './routes/PhotoDetailsModal.jsx';
 
 
 
 // Note: Rendering a single component to build components in isolation
 const App = () => {
 
-  // create a place to hold our todos
-  const [todos, setTodos] = useState([]);
-
-  useEffect(() => {
-    // use the fetch API to make an AJAX request to the backend
-    fetch('http://localhost:8080/todos')
-      .then(res => res.json())
-      .then(data => setTodos(data));
-  }, []);
+  const { state, setLikedPhotos, setSelectedPhoto } = useApplicationData()
 
   return (
     <div className="photo-list">
-       {JSON.stringify(todos)}
       <HomeRoute
-        topics={state.topics}
-        photos={state.photos}
+        topics={state.topicData}
+        photos={state.photoData}
         likedPhotos={state.likedPhotos}
         setLikedPhotos={setLikedPhotos}
         setSelectedPhoto={setSelectedPhoto}

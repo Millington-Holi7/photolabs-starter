@@ -1,13 +1,14 @@
-import { useReducer, useState } from 'react';
-import photos from 'mocks/photos';
-import topics from 'mocks/topics';
+import { useReducer, useEffect } from 'react';
+
 
 const initialState = {
   selectedPhoto: null,
   likedPhotos: [],
-  photos,
-  topics
+  photoData: [],
+  topicData: []
 }
+
+
 
 export const ACTIONS = {
   TOGGLE_LIKE: 'TOGGLE_LIKE',
@@ -20,8 +21,8 @@ export const ACTIONS = {
 function reducer(state, action) {
   switch (action.type) {
 
-    case ACTIONS.TOGGLE_LIKE:
-      const id  = action.payload;
+    case ACTIONS.ADD_TO_FAV:
+      const id = action.payload;
       const isLiked = state.likedPhotos.includes(id);
       const updatedLikedPhotos = isLiked
         ? state.likedPhotos.filter(photoId => photoId !== id)
@@ -37,6 +38,18 @@ function reducer(state, action) {
         selectedPhoto: action.payload
       };
 
+      case ACTIONS.SET_PHOTO_DATA:
+        return {
+          ...state,
+          photoData: action.payload
+        }
+
+        case ACTIONS.SET_TOPIC_DATA:
+          return {
+            ...state,
+            topicData: action.payload
+          }
+
     default:
       throw new Error(
         `Tried to reduce with unsupported action type: ${action.type}`
@@ -46,10 +59,22 @@ function reducer(state, action) {
 }
 export const useApplicationData = function () {
 
+useEffect(() => { // fetching (GET) photo data using promises
+  fetch('/api/photos')
+    .then(res => res.json())
+    .then((data) => dispatch({type:ACTIONS.SET_PHOTO_DATA, payload: data}))
+}, []);
+
+useEffect(() => { // fetching (GET) topic data using promises
+  fetch('/api/topics')
+    .then(res => res.json())
+    .then((data) => dispatch({type:ACTIONS.SET_TOPIC_DATA, payload: data}))
+}, []);
+
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  const setLikedPhotos = (id) => dispatch({ type: ACTIONS.TOGGLE_LIKE, payload:  id  });
-  const setSelectedPhoto = (photo) => dispatch({ type: ACTIONS.SELECT_PHOTO, payload:  photo  });
+  const setLikedPhotos = (id) => dispatch({ type: ACTIONS.ADD_TO_FAV, payload: id });
+  const setSelectedPhoto = (photo) => dispatch({ type: ACTIONS.SELECT_PHOTO, payload: photo });
 
   return { state, setLikedPhotos, setSelectedPhoto };
 }
