@@ -10,8 +10,9 @@ import PhotoDetailsModal from './routes/PhotoDetailsModal.jsx';
 // Note: Rendering a single component to build components in isolation
 const App = () => {
 
-  const { state, setLikedPhotos, setSelectedPhoto } = useApplicationData()
-
+  const { state, setLikedPhotos, setSelectedPhoto, onSelectTopic } = useApplicationData()
+  
+  console.log('&&', state)
   return (
     <div className="photo-list">
       <HomeRoute
@@ -20,6 +21,8 @@ const App = () => {
         likedPhotos={state.likedPhotos}
         setLikedPhotos={setLikedPhotos}
         setSelectedPhoto={setSelectedPhoto}
+        selectedTopic={state.selectedTopic}
+        onSelectTopic={onSelectTopic}
       />
 
       {state.selectedPhoto && <PhotoDetailsModal

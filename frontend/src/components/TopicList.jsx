@@ -3,13 +3,16 @@ import "../styles/TopicList.scss";
 import TopicListItem from "./TopicListItem";
 
 
-const TopicList = (props) => {
+const TopicList = ({ topics, selectedTopic, onSelectTopic }) => {
 
-  const { topics }= props;  
   return (
     <div className="top-nav-bar__topic-list">
       {topics.map((topic) => (
-          <TopicListItem key={topic.id} topic={topic} />
+          <TopicListItem 
+          key={topic.id} 
+          topic={topic} 
+          selected={topic.id === selectedTopic }
+          onSelectTopic={onSelectTopic}/>
       ))}
 
     </div >

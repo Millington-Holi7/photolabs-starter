@@ -4,12 +4,16 @@ import "../styles/PhotoListItem.scss";
 
 
 
-const PhotoListItem = ({ photo, setLikedPhotos, setSelectedPhoto } ) => {
+const PhotoListItem = ({ photo, setLikedPhotos, setSelectedPhoto, likedPhotos } ) => {
   
 
   return (
     <div className="photo-list__item" >
-      <PhotoFavButton setLikedPhotos={setLikedPhotos} id={photo.id} />
+      <PhotoFavButton 
+      setLikedPhotos={setLikedPhotos} 
+      id={photo.id} 
+      likedPhotos={likedPhotos} 
+      />
       <img className="photo-list__image" src={photo.urls.full} onClick={() => setSelectedPhoto(photo)} />
       <img className="photo-list__user-profile" src={photo.user.profile} />
       <div className="photo-list__user-info">
