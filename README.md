@@ -5,22 +5,22 @@ Welcome to my Photolabs project. It displays photos. You can like the photos and
 
 ### Layout of the webpage. You can also see how if you like a photo, it alerts you in the top right corner.
 
-!["Main Page"]()
+!["Main Page"](https://github.com/Millington-Holi7/photolabs-starter/blob/main/frontend/docs/mainpage.png?raw=true)
 
 
 ### The modal appears when you click on a photo. It shows the photo in large and if the photo is liked. Also if you notice in the back, you can scroll allong the webpage and the modal will appear where your viewing instead of having to scroll back up to see the larger photo.
 
-!["Photo Large"]()
+!["Photo Large"](https://github.com/Millington-Holi7/photolabs-starter/blob/main/frontend/docs/SimiliarPhotoLarge.png?raw=true)
 
 
 ### Below the large photo are similar photos. You can also like these photos. If you select the photo, a larger version appears. 
 
-!["Similiar Photos"]()
+!["Similiar Photos"](https://github.com/Millington-Holi7/photolabs-starter/blob/main/frontend/docs/similiarPhotos.png?raw=true)
 
 
 ### When you select a topic, a line appears above the topic so you know which Topic you are currently viewing. 
 
-!["Topic Photo"]()
+!["Topic Photo"](https://github.com/Millington-Holi7/photolabs-starter/blob/main/frontend/docs/Topics.png?raw=true)
 
 
 ## Setup
