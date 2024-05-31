@@ -2,8 +2,9 @@ import React from "react";
 import PhotoListItem from "./PhotoListItem";
 import "../styles/PhotoList.scss";
 
-const PhotoList = ({ photos, setLikedPhotos, setSelectedPhoto, likedPhotos }) => {
-
+const PhotoList = ({ photos, setAddToFavouritePhotos, setSelectedPhoto, favouritePhotos }) => {
+  
+// displays all the photos depending on which array is sent to it.
   return (
     <ul className="photo-list"  >
 
@@ -11,9 +12,9 @@ const PhotoList = ({ photos, setLikedPhotos, setSelectedPhoto, likedPhotos }) =>
         <li key={photo.id}  >
           <PhotoListItem
             photo={photo}
-            setLikedPhotos={setLikedPhotos}
+            setAddToFavouritePhotos={setAddToFavouritePhotos}
             setSelectedPhoto={setSelectedPhoto}
-            likedPhotos={likedPhotos}
+            favouritePhotos={favouritePhotos}
           />
         </li>
       ))}

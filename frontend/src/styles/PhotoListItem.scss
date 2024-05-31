@@ -6,6 +6,7 @@
   border-style: solid;
   border-radius: 8px;
   max-width: fit-content;
+  background-color:#FFFFFF ;
 }
 
 .photo-list__image {
@@ -26,14 +27,15 @@
 .photo-list__user-profile {
   object-fit: cover;
   border-radius: 100%;
-  vertical-align: middle;
-  margin-right: 8px;
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
 }
 
 .photo-list__user-details {
   display: flex;
+  text-align: left;
+  align-items: center;
+  margin-top: 5px;
 }
 
 .photo-list__user-info {
@@ -41,8 +43,11 @@
   font-weight: 700;
   font-size: 12px;
   margin-left: 8px;
+  align-items: center;
+
 }
 
 .photo-list__user-location {
   color: #838383;
+
 }

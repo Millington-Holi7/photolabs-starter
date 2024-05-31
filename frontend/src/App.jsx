@@ -1,35 +1,37 @@
-import React, { reducer } from 'react';
+import React from 'react';
 import HomeRoute from './routes/HomeRoute.jsx';
 import './App.scss';
-import './styles/PhotoList.scss'
 import { useApplicationData } from './hooks/useApplicationData';
 import PhotoDetailsModal from './routes/PhotoDetailsModal.jsx';
 
-
-
-// Note: Rendering a single component to build components in isolation
+// Main App component
 const App = () => {
-
-  const { state, setLikedPhotos, setSelectedPhoto, onSelectTopic } = useApplicationData()
   
-  console.log('&&', state)
+  // Destructure state and functions from the custom hook
+  const { state, setAddToFavouritePhotos, setSelectedPhoto, onSelectTopic} = useApplicationData();
+
   return (
     <div className="photo-list">
+      {/* HomeRoute component to display the main content */}
       <HomeRoute
         topics={state.topicData}
         photos={state.photoData}
-        likedPhotos={state.likedPhotos}
-        setLikedPhotos={setLikedPhotos}
+        favouritePhotos={state.favouritePhotos}
+        setAddToFavouritePhotos={setAddToFavouritePhotos}
         setSelectedPhoto={setSelectedPhoto}
         selectedTopic={state.selectedTopic}
         onSelectTopic={onSelectTopic}
       />
 
-      {state.selectedPhoto && <PhotoDetailsModal
-        selectedPhoto={state.selectedPhoto}
-        setSelectedPhoto={setSelectedPhoto}
-        setLikedPhotos={setLikedPhotos}
-      />}
+      {/* Conditionally render PhotoDetailsModal if a photo is selected */}
+      {state.selectedPhoto && (
+        <PhotoDetailsModal
+          selectedPhoto={state.selectedPhoto}
+          setSelectedPhoto={setSelectedPhoto}
+          setAddToFavouritePhotos={setAddToFavouritePhotos}
+          favouritePhotos={state.favouritePhotos}
+        />
+      )}
     </div>
   );
 };

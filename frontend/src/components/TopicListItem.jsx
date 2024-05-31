@@ -1,16 +1,18 @@
 import React from "react";
+import "../styles/TopicListItem.scss"; // Styles for the topic list item
 
-import "../styles/TopicListItem.scss";
-
-
-const TopicListItem = (props) => {
-  const {topic, onSelectTopic} = props;
+// Component to render a topic list item
+const TopicListItem = ({ topic, onSelectTopic, selected }) => {
+  
   return (
     <div className="topic-list__item" onClick={() => onSelectTopic(topic.id)}>
-      {topic.title}
-      {props.selected ? "selected" : " "}
+      {/* Span element to display topic title, with conditional class for selected topic */}
+      <span className={`topic-list__item ${selected ? "selected" : ""}`}>
+        {topic.title}
+      </span>
     </div>
   );
 };
 
 export default TopicListItem;
+

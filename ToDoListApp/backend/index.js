@@ -1,5 +1,5 @@
 // Server
-const express = require('express'); 
+const express = require('express');
 const morgan = require('morgan');
 const cors = require('cors');
 
@@ -10,9 +10,9 @@ app.use(morgan('dev'));
 app.use(cors()); // allow requests from any domain
 
 const todoData = {
-  abc: {id: 'abc', task: 'buy milk', done: false},
-  def: {id: 'def', task: 'wash dishes', done: false},
-  ghi: {id: 'ghi', task: 'clean up', done: true},
+  abc: { id: 'abc', task: 'buy milk', done: false },
+  def: { id: 'def', task: 'wash dishes', done: false },
+  ghi: { id: 'ghi', task: 'clean up', done: true },
 };
 
 // GET /todos => respond with all todos as JSON
